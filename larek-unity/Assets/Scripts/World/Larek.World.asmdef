@@ -1,0 +1,5 @@
+{
+  "name": "Larek.World",
+  "rootNamespace": "Larek.World",
+  "references": ["Larek.Economy", "Larek.Interactions", "Larek.Gameplay"]
+}

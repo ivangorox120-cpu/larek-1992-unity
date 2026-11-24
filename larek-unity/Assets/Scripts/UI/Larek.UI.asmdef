@@ -1,0 +1,5 @@
+{
+  "name": "Larek.UI",
+  "rootNamespace": "Larek.UI",
+  "references": ["Larek.Economy", "Larek.Interactions", "Larek.Save", "Larek.Gameplay", "Larek.World", "Larek.Systems"]
+}

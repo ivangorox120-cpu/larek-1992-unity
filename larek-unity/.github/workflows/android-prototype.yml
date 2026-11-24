@@ -1,27 +1,48 @@
-name: Android prototype
+name: Unity test and build
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Build Unity prototype
+      - name: Unity EditMode tests
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: larek-unity
+          unityVersion: 2022.3.62f1
+          testMode: editmode
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build full Android game
         uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
+          projectPath: larek-unity
           targetPlatform: Android
           unityVersion: 2022.3.62f1
-          buildMethod: PrototypeBuild.Build
-      - name: Upload prototype APK
+          buildMethod: FullBuild.Build
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: larek-android-prototype
-          path: Builds/LarekPrototype.apk
+          name: larek-1992-android
+          path: larek-unity/Builds/Larek1992.apk
           if-no-files-found: error

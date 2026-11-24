@@ -1,6 +1,6 @@
 {
   "name": "Larek.Economy.Tests",
-  "references": ["Larek.Economy", "Larek.Interactions", "Larek.Save"],
+  "references": ["Larek.Economy", "Larek.Interactions", "Larek.Save", "Larek.Gameplay", "Larek.Systems", "Larek.Porting"],
   "optionalUnityReferences": ["TestAssemblies"],
   "includePlatforms": ["Editor"]
 }
