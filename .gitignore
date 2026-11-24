@@ -1,0 +1,29 @@
+# Local harness config with provider keys
+opencode.json
+
+# Duplicate archive of an earlier snapshot
+*.zip
+
+# Unity generated folders
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]uilds/
+**/[Uu]ser[Ss]ettings/
+**/[Ll]ogs/
+**/[Mm]emoryCaptures/
+**/[Rr]ecordings/
+
+# Unity generated files
+**/*.csproj
+**/*.sln
+**/*.user
+**/*.pidb
+**/*.booproj
+**/*.pdb
+**/*.mdb
+**/*.opendb
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,5 @@
+{
+  "name": "Larek.Save",
+  "rootNamespace": "Larek.Save",
+  "references": ["Larek.Economy"]
+}
